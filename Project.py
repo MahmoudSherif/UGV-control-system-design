@@ -11,6 +11,7 @@ PyLora.init()                      #initialize wireless connection
 PyLora.set_frequency(868000000)
 PyLora.enable_crc()
 
+
 #lora connection 
 #CS = 22
 #RST = 11
@@ -88,6 +89,9 @@ GPIO.output(DIR2,CW)
 GPIO.setup(DIR3, GPIO.OUT)
 GPIO.setup(clk3, GPIO.OUT)
 GPIO.output(DIR3,CW)
+
+
+
 
 
 
@@ -205,6 +209,16 @@ def Stepper3CCW():
         GPIO.output(clk3,GPIO.LOW)
         sleep(delay)         
 
+#Dartgun=28
+#GPIO.setup(Dartgun,GPIO.OUT)
+
+#def trigger_dartgun():
+    #GPIO.output(Dartgun,GPIO.HIGH)
+    #sleep(.1)
+    #GPIO.output(Dartgun,GPIO.LOW)
+
+
+
 OnFlag=0                          #The robot  is off  
 while 1:
     try:
@@ -236,7 +250,8 @@ while 1:
                 servo_right()
             if(data=="servo_left"):
                 servo_left()
-
+            #if(data=="trigger_dartgun"):
+                #trigger_dartgun()
             if(data=="brake"):
                 brake()
             else :
